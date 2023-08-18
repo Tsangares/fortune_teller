@@ -49,6 +49,7 @@ gruut-lang-de==2.0.0
 gruut-lang-en==2.0.0
 gruut-lang-es==2.0.0
 gruut-lang-fr==2.0.2
+gunicorn==21.2.0
 huggingface-hub==0.16.4
 idna==3.4
 imageio==2.31.1
