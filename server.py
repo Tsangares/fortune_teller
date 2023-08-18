@@ -25,6 +25,19 @@ print(tts.languages)
 load_dotenv()
 app = Flask(__name__)
 
+fortunes = [
+    "Predict their career success and the path that will lead them there.",
+    "Share a fortune about their future love life and potential soulmate.",
+    "Tell them what challenges they will face in the coming year and how to overcome them.",
+    "Predict their financial stability and possibility of wealth in the future.",
+    "Give them insights about their family relationships and potential changes.",
+    "Tell a fortune about their health and possible improvements or concerns.",
+    "Share a fortune about their upcoming travels and adventures.",
+    "Predict their personal growth and potential milestones in the next decade.",
+    "Tell them what impact their choices and decisions will have on their life.",
+    "Share a fortune about their spiritual journey and inner peace.",
+]
+
 def text_to_base64wav(text):
     if tts.speakers is None and tts.languages is None:
         wav = tts.tts(text)
@@ -44,8 +57,10 @@ def get_fortune(query="Tell me a fortune."):
     input_prompt=[
         {"role": "system", "content": "You are a fortune teller. Please respond with an insightful fortune. Respond with only english under 50 words." },
         {"role": "system", "content": "Your fortune should be really unique. Please come up with something extremtly creative and new each time." },
-        {"role": "user", "content": query},
+        
     ]
+    input_prompt += {"role": "system", "content": random.choice(fortunes)}
+    input_prompt += {"role": "user", "content": query},
     response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=input_prompt,
