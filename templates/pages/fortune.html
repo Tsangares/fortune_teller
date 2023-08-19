@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oracle</title>
+    {% include "components/header.html" %}
+</head>
+
+<body>
+    <div class="horizontal-container">
+        <div>
+            <h1>Words from the Oracle</h1>
+        </div>
+        <div hx-trigger="mouseenter once" class="audio-container">
+            <audio autoplay controls src="data:audio/wav;base64, {{audio_string}}"></audio>
+        </div>
+        <div class="blob">
+            <p>{{fortune}}</p>
+        </div>
+    </div>
+</body>
+<foot>
+    <div hidden hx-get="/generate/" hx-swap="innerHTML" hx-trigger="load">Generating new fortune...</div>
+</foot>
+
+</html>

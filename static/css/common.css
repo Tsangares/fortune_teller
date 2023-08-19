@@ -1,0 +1,27 @@
+.horizontal-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.horizontal-container > div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.audio-container{
+    width: 80%;
+}
+.audio-container audio{
+    width: 100%;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+    .horizontal-container{
+        margin-left: 6%;
+        margin-right: 6%;1
+    }
+}
