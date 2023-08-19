@@ -10,11 +10,9 @@ import base64
 import random
 import openai
 import os
+load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
 SAMPLE_RATE = 16_000
-model_name = random.choice(TTS().list_models())
-print(TTS().list_models())
 model_name="tts_models/en/ljspeech/tacotron2-DCA"
 tts = TTS(model_name)
 print(model_name)
@@ -53,14 +51,16 @@ def text_to_base64wav(text):
     audio_data = base64.b64encode(wav_bytes).decode('UTF-8')
     return audio_data
 
-def get_fortune(query="Tell me a fortune."):
+def get_fortune(query="Tell me a fortune.",random_fortune=False):
     input_prompt=[
         {"role": "system", "content": "You are a fortune teller. Please respond with an insightful fortune. Respond with only english under 50 words." },
         {"role": "system", "content": "Your fortune should be really unique. Please come up with something extremtly creative and new each time." },
         
     ]
-    input_prompt += {"role": "system", "content": random.choice(fortunes)}
-    input_prompt += {"role": "user", "content": query},
+    if random_fortune:
+        input_prompt.append({"role": "system", "content": random.choice(fortunes)})
+    input_prompt.append({"role": "user", "content": query})
+    
     response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=input_prompt,
@@ -79,13 +79,13 @@ def speak():
 @app.route('/ask/')
 def ask_fortune():
     string = request.args.get('text','Tell me a fortune')
-    audio_data = get_fortune(string)
+    audio_data = get_fortune(string,random_fortune=False)
     return f'<audio controls src="data:audio/wav;base64, {audio_data}"></audio>'
 
 @app.route('/')
 def index():
     audio_data = get_fortune()
-    return f'<audio controls src="data:audio/wav;base64, {audio_data}"></audio>'
+    return f'<audio autoplay controls src="data:audio/wav;base64, {audio_data}"></audio>'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="127.0.0.1",port="8666",debug=False)
