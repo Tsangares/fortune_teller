@@ -127,4 +127,4 @@ def index():
     return render_template('/pages/fortune.html',**fortune)
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1",port="8666",debug=True)
+    app.run(host="127.0.0.1",port="8666",debug=False)
