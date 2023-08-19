@@ -10,6 +10,13 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.title{
+    font-size: 3rem;
+}
+.blob{
+    font-size: 1.3rem;
+    line-height: 3rem;
+}
 
 .audio-container{
     width: 80%;
@@ -22,6 +29,28 @@
 @media only screen and (max-width: 600px) {
     .horizontal-container{
         margin-left: 6%;
-        margin-right: 6%;1
+        margin-right: 6%;
     }
+}
+
+@font-face {
+    font-family: 'tangerine';
+    src: url('/static/fonts/Tangerine-Regular.ttf');
+}
+.tangerine{
+    font-family: 'tangerine';
+}
+@font-face {
+    font-family: 'borel';
+    src: url('/static/fonts/Borel-Regular.ttf');
+}
+.borel{
+    font-family: 'borel';
+}
+@font-face {
+    font-family: 'berkshire';
+    src: url('/static/fonts/BerkshireSwash-Regular.ttf');
+}
+.berkshire{
+    font-family: 'berkshire';
 }

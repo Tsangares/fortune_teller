@@ -124,7 +124,9 @@ def ask_fortune():
 @app.route('/')
 def index():
     fortune = get_last_cached_fortune()
-    return render_template('/pages/fortune.html',**fortune)
+    entropy = random.random()
+    return render_template('/pages/fortune.html',entropy=entropy,**fortune)
+
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1",port="8666",debug=False)
