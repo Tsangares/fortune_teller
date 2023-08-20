@@ -60,9 +60,32 @@ def text_to_base64wav(text):
     audio_data = base64.b64encode(wav_bytes).decode('UTF-8')
     return audio_data
 
+DEFAULT_PRE_PROMPT = "You are a fortune teller. Please respond with an insightful unique fortune. Respond with only english under 50 words."
+
+def get_custom_fortune(pre_prompts=None,prompt="Tell me a fortune",post_prompts=[]):
+    if pre_prompts is None:
+        pre_prompts = [DEFAULT_PRE_PROMPT]
+    input_prompt=[]
+    for pre_prompt in pre_prompts:
+        if pre_prompt=="": continue
+        input_prompt.append({"role": "system", "content": pre_prompt})
+    input_prompt.append({"role": "system", "content": prompt})
+    for post_prompt in post_prompts:
+        if pre_prompt=="": continue
+        input_prompt.append({"role": "system", "content": post_prompt})
+    # Get response using chatgpt3.5
+    response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=input_prompt,
+                temperature=1.0,
+                )
+    text = response['choices'][0]['message']['content']
+    return text
+
+
 def get_fortune(query="Tell me a fortune.",random_fortune=False):
     fortune = {
-        "prompt_character": "You are a fortune teller. Please respond with an insightful unique fortune. Respond with only english under 50 words.",
+        "prompt_character": DEFAULT_PRE_PROMPT,
     }
     input_prompt=[
         {"role": "system", "content": fortune["prompt_character"]},
@@ -120,6 +143,20 @@ def ask_fortune():
     string = request.args.get('text','Tell me a fortune')
     audio_data = get_fortune(string,random_fortune=False)
     return f'<audio controls src="data:audio/wav;base64, {audio_data}"></audio>'
+
+@app.route('/calibrate/', methods=['GET'])
+def calibrate_fortune_teller():
+    return render_template('/pages/calibrate.html',default_pre_prompt=DEFAULT_PRE_PROMPT)
+
+@app.route('/calibrate/', methods=['POST'])
+def calibrate_fortune_teller_custom():
+    pre_prompt = request.form.get('pre_prompt',DEFAULT_PRE_PROMPT)
+    extra_prompt = request.form.get('extra_prompt',"")
+    prompt = request.form.get('prompt',"Tell me a fortune")
+    fortune = get_custom_fortune([pre_prompt,extra_prompt],prompt)
+    return render_template('/pages/calibrate.html',fortune=fortune,pre_prompt=pre_prompt,extra_prompt=extra_prompt,prompt=prompt)
+
+
 
 @app.route('/')
 def index():
