@@ -10,6 +10,14 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+.box {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgba(0,0,0,.03);
+    border: 1px dotted rgba(0,0,0,.5);
+    border-radius: .25rem;
+}
 .title{
     font-size: 3rem;
 }
@@ -23,6 +31,28 @@
 }
 .audio-container audio{
     width: 100%;
+}
+buttons, .buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+button,.button{
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: 1px solid rgba(0,0,0,.5);
+    background-color: rgb(10,155,219,.8);
+    color: white;
+    cursor: pointer;
+    margin: auto;
+    transition: all .15s;
+}
+button:hover,.button:hover{
+    background-color: rgb(10,135,219,.5);
+}
+button:active,.button:active{
+    background-color: rgb(10,135,219,1);
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -54,3 +84,4 @@
 .berkshire{
     font-family: 'berkshire';
 }
+

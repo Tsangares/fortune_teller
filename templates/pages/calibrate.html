@@ -16,20 +16,28 @@
         </div>
         <form action="/calibrate/" method="post">
             <field>
-                <label for="calibration">Pre-Prompt</label>
+                <label id="label-pre-prompt" for="pre-prompt">Pre-Prompt</label>
                 <textarea rows=4" name="pre_prompt" id="pre-prompt" placeholder="{{default_pre_prompt}}">{{pre_prompt}}</textarea>
             </field>
             <field>
-                <label for="calibration">Example Prompt</label>
+                <label id="label-prompt" for="prompt">Example Prompt</label>
                 <input type="text" name="prompt" id="prompt" placeholder="Tell me a fortune." value="{{prompt}}"/>
             </field>
-            <field>
+            <buttons>
                 <input type="submit" value="Ask Fortune" />
-            </field>
+                <a href="/calibrate/all"><button type="button">See Archive</button></a>
+            </buttons>
         </form>
+        {% if fortune %}
         <div>
             <p>{{fortune}}</p>
+            
         </div>
+        <div>
+            <button hx-trigger="click" hx-post="/calibrate/save" hx-include="#pre-prompt, #prompt" hx-target="this" hx-swap="outerHTML"/>Save Prompts</button>
+            <p id="save-response"></p>
+        </div>
+        {% endif %}
     </div>
 </body>
 <foot>

@@ -156,7 +156,16 @@ def calibrate_fortune_teller_custom():
     fortune = get_custom_fortune([pre_prompt,extra_prompt],prompt)
     return render_template('/pages/calibrate.html',fortune=fortune,pre_prompt=pre_prompt,extra_prompt=extra_prompt,prompt=prompt)
 
+@app.route('/calibrate/save', methods=['POST'])
+def save_calibration():
+    response = mongo.db.prompts.insert_one(dict(request.form))
+    return "<h3>Prompt Saved! Go to archive to see all saved prompts.</h3>"
 
+@app.route('/calibrate/all', methods=['GET'])
+def calibration_see_all():
+    cursor = mongo.db.prompts.find({})
+    prompts = [p for p in cursor]
+    return render_template("/pages/calibrate_all.html",prompts=prompts)
 
 @app.route('/')
 def index():

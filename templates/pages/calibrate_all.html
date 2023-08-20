@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calibration</title>
+    {% include "components/header.html" %}
+    <link href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/page_calibration.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="horizontal-container">
+        <div>
+            <h1 class="title berkshire">Prompt Archive</h1>
+        </div>
+        <div>
+            <a href="/calibrate/"><button>Back to Calibration</button></a>
+        </div>
+        {% for prompt in prompts %}
+        <div class="box">
+            <p>{{prompt['pre_prompt']}}</p>
+            <p>{{prompt['prompt']}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+<foot>
+</foot>
+</html>
