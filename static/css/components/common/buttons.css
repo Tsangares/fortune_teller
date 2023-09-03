@@ -1,0 +1,91 @@
+/* Define some common button styles */
+/* TODO: Create more colors and color-classes for buttons */
+
+buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+buttons > * {
+    display: inline-flex;
+}
+
+
+button, .button{
+    font-family: "Bree Serif";
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    border-radius: .5rem;
+    border: 1px solid rgba(0,0,0,.5);
+    background-color: rgba(10,155,219,.8);
+    color: white;
+    cursor: pointer;
+    /*margin: auto;*/
+    transition: all 1s linear;
+    outline: 0px rgb(26, 188, 156) dashed;
+    box-shadow: inset 0rem 0rem 0rem 0rem rgba(0,0,0,0);
+}
+
+button:hover, .button:hover{
+    animation: shake 1s;
+    outline: 1px rgb(26, 188, 156) dashed;
+    box-shadow: inset 0rem .3rem .3rem .1rem rgba(0,0,0,.4);
+}
+button:active, .button:active{
+    box-shadow: 0rem 0rem 1rem .1rem rgba(0,0,0,.6);
+}
+
+
+.green{
+    background-color: rgb(39, 174, 96)
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+
+  .expanding-button{
+    width: inherit;
+    font-family: "Bree Serif";
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-width: 0px;
+    border-radius: .5rem;
+    outline: 0px rgb(26, 188, 156) dashed;
+    outline-offset: 0px;
+    background-color: rgb(0,155,119,.8);
+    color: white;
+    cursor: pointer;
+    transition: all .15s linear;
+    opacity: 1;
+    box-shadow: inset 0rem 0rem 0rem 0rem rgba(255,255,255,.8);
+}
+.expanding-button:hover{
+    outline-offset: 1rem;
+    padding: 1.5rem;
+    margin: 0.5rem;
+    outline: 3px rgb(26, 188, 156) dashed;
+    box-shadow: inset 0rem 0rem 2rem 4rem rgba(255,255,255,.1);
+}
+.expanding-button:active{
+    outline-offset: -.33rem;
+    outline-style: dotted;
+    padding: 0.5rem;
+    margin: 1.5rem;
+    box-shadow: inset 0rem 0rem 1rem 1rem rgba(0,0,0,.25);
+}

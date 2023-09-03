@@ -11,6 +11,22 @@
     margin-bottom: 1rem;
 }
 
+.center{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.center span{
+    text-align: center;
+}
+
+.audio-controls{
+    height: 100%;
+}
+.audio-button > span{
+    font-size: 2rem ;
+}
 .box {
     margin: 1rem;
     padding: 1rem;
@@ -56,10 +72,16 @@ button:active,.button:active{
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
+    .audio-button > span{
+        font-size: 3.5rem ;
+    }
     .horizontal-container{
         margin-left: 6%;
         margin-right: 6%;
+    }
+    html,body{
+        font-size: 18px;
     }
 }
 

@@ -1,0 +1,6 @@
+/* Import all the common components */
+@import url('/static/css/components/common/buttons.css');
+
+.hidden {
+    display: none;
+}

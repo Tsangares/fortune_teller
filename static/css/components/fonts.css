@@ -1,0 +1,287 @@
+/* latin */
+@font-face {
+    font-family: 'Arvo';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Arvo/Arvo-Italic.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Arvo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Arvo/Arvo-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'B612 Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/B612_Mono/B612Mono-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Berkshire Swash';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Berkshire_Swash/BerkshireSwash-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Bree Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Bree_Serif/BreeSerif-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Cinzel/Cinzel-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Cormorant_Garamond/CormorantGaramond-Italic.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Cutive Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Cutive_Mono/CutiveMono-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Fondamento';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Fondamento/Fondamento-Italic.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Fondamento';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Fondamento/Fondamento-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(/static/fonts/Inconsolata/Inconsolata-VariableFont_wdth\,wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Lato/Lato-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Lora/Lora-Italic-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Lora/Lora-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Philosopher';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Philosopher/Philosopher-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Philosopher';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Philosopher/Philosopher-Italic.ttf );
+}
+
+/* latin */
+@font-face {
+    font-family: 'Philosopher';
+    font-weight: 500;
+    font-display: swap;
+    src: url(/static/fonts/Philosopher/Philosopher-Bold.ttf );
+}
+
+/* latin */
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Pridi';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Pridi/Pridi-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 100;
+    font-display: swap;
+    src: url(/static/fonts/Roboto/Roboto-ThinItalic.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Roboto/Roboto-Italic.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url(/static/fonts/Roboto/Roboto-Thin.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'VT323';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/VT323/VT323-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Varela Round';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Varela_Round/VarelaRound-Regular.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf);
+}
+
+/* latin */
+@font-face {
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/static/fonts/Work_Sans/WorkSans-Italic-VariableFont_wght.ttf);
+}

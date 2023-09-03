@@ -1,0 +1,88 @@
+form field > *{
+    display: block;
+    margin: .25rem;
+    padding: .5rem 0;
+}
+form field label{
+    font-family: "Varela Round";
+    font-size: 2rem;
+}
+form field input, form field textarea{
+    font-family: "Varela Round";
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: .5rem;
+    border: 1px solid rgba(0,0,0,.5);
+}
+form radiofield{
+    text-align: center;
+}
+form radiofield radio{
+    display: inline-block;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+form radio input{
+    display: none;
+}
+
+form radiofield {
+    position: absolute;
+    width: 60%;
+}
+form radiofield label{
+    display: inline-block;
+    border-radius: 1rem;
+    border: 0rem rgb(0,0,0,0) solid;
+    outline-color: rgb(255,255,255,.75);
+    outline-style: dashed;
+    outline-offset: .3rem;
+    outline-width: .3rem;
+    margin: 0.8rem;
+    padding: 0.5rem;
+    transition: all .2s linear;
+}
+form radio input:checked+label{
+    margin: 0;
+    border: .8rem rgb(255,255,255,.75) solid;
+    outline: .3rem rgb(255,255,255,.75) solid;
+}
+form input[type="submit"]{
+    width: inherit;
+    font-family: "Bree Serif";
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-width: 0px;
+    border-radius: .5rem;
+    outline: 0px rgb(26, 188, 156) dashed;
+    outline-offset: 0px;
+    background-color: rgb(0,155,119,.8);
+    color: white;
+    cursor: pointer;
+    transition: all .15s linear;
+    opacity: 1;
+    box-shadow: inset 0rem 0rem 0rem 0rem rgba(255,255,255,.8);
+}
+form input[type="submit"]:hover{
+    outline-offset: 1rem;
+    padding: 1.5rem;
+    margin: 0.5rem;
+    outline: 3px rgb(26, 188, 156) dashed;
+    box-shadow: inset 0rem 0rem 2rem 4rem rgba(255,255,255,.1);
+}
+form input[type="submit"]:active{
+    outline-offset: -.33rem;
+    outline-style: dotted;
+    padding: 0.5rem;
+    margin: 1.5rem;
+    box-shadow: inset 0rem 0rem 1rem 1rem rgba(0,0,0,.25);
+}
+form {
+    width: 100%;
+}
+form > field {
+    margin: 1rem;
+    padding: .5rem;
+}

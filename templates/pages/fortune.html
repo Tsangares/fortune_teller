@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>The Oracle</title>
     {% include "components/header.html" %}
+    <!-- Import index css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 </head>
 
 <body>
@@ -12,8 +14,16 @@
         <div>
             <h1 class="title berkshire">Words from the Oracle</h1>
         </div>
-        <div hx-trigger="mouseenter once" class="audio-container">
-            <audio autoplay controls src="data:audio/wav;base64, {{audio_string}}"></audio>
+        <div class="audio-container center">
+            <div id="play" class="audio-button expanding-button center" onclick="play()">
+                <span class="material-icons">
+                    play_arrow
+                </span>
+            </div>
+            <div id="pause" class="audio-button expanding-button center hidden" onclick="pause()">
+                <span class="material-icons">pause_arrow</span>
+            </div>
+            <audio id="audio" hidden autoplay controls src="data:audio/wav;base64, {{audio_string}}"></audio>
         </div>
         <div class="blob borel">
             <p>{{fortune}}</p>
@@ -22,6 +32,19 @@
 </body>
 <foot>
     <div hidden hx-get="/generate/" hx-swap="innerHTML" hx-trigger="load">Generating new fortune...</div>
+    <script>
+        function play() {
+            $('#audio').get(0).play();
+            // Hide by setting display none
+            $('#play').css('display', 'none');
+            $('#pause').css('display', 'flex');
+        }
+        function pause(){
+            $('#audio').get(0).pause();
+            $('#play').css('display', 'flex');
+            $('#pause').css('display', 'none');
+        }
+    </script>
 </foot>
 
 </html>

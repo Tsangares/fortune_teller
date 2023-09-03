@@ -1,0 +1,21 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #2C3E50;
+    color: white;
+}
+
+form field > label{
+    color: rgba(255,255,255,.75);
+}
+
+form input[type="submit"]{
+    border-color: rgba(255,255,255,.5);
+    background-color: rgba(155, 89, 182,1);
+}
+notes{
+    color: rgba(255,255,255,.5);
+    text-shadow: 1px 1px rgba(0,0,0,.8);
+}
