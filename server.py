@@ -39,7 +39,8 @@ mongo = PyMongo(app)
 # Setup TTS
 SAMPLE_RATE = 16_000
 model_name="tts_models/en/ljspeech/tacotron2-DCA"
-tts = TTS(model_name)
+#tts = TTS(model_name)
+tts=None
 #Load Trump Synthesizer
 trump = Synthesizer(
         tts_config_path="./models/trump/config.json",
