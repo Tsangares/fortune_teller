@@ -86,11 +86,14 @@ def text_to_base64wav(text):
     audio_data = base64.b64encode(wav_bytes).decode('UTF-8')
     return audio_data
 
-#DEFAULT_PRE_PROMPT = "You are a fortune teller. Please respond with an insightful unique fortune. Respond with only english under 50 words."
-DEFAULT_PRE_PROMPT = "You are Donald trump and you make predictions like you are giving a campaign speech. Please announce a fortune in 2 sentences."
-def get_custom_fortune(pre_prompts=None,prompt="Tell me a fortune",post_prompts=[]):
+DEFAULT_PRE_PROMPT = "You are a fortune teller. Please respond with an insightful unique fortune. Respond with only english under 50 words."
+TRUMP_PRE_PROMPT = "You are Donald trump and you make predictions like you are giving a campaign speech. Please announce a fortune in 2 sentences."
+def get_custom_fortune(pre_prompts=None,prompt="Tell me a fortune",post_prompts=[],trump=False):
     if pre_prompts is None:
-        pre_prompts = [DEFAULT_PRE_PROMPT]
+        if trump:
+            pre_prompts = [TRUMP_PRE_PROMPT]
+        else:
+            pre_prompts = [DEFAULT_PRE_PROMPT]
     input_prompt=[]
     for pre_prompt in pre_prompts:
         if pre_prompt=="": continue
@@ -135,7 +138,11 @@ def get_fortune(query="Tell me a fortune.",random_fortune=False):
     fortune["time_created"] = datetime.now()
 
     # Convert to audio
-    audio_string = trump_to_base64wav(text)
+    if trump:
+        audio_string = trump_to_base64wav(text)
+    else:
+        audio_string = text_to_base64wav(text)
+    
     fortune['trump'] = True
     fortune["audio_string"] = audio_string
 
@@ -148,10 +155,10 @@ def get_fortune(query="Tell me a fortune.",random_fortune=False):
     return audio_string
 
 @app.route('/generate/')
-def generate_new_fortune():
+def generate_new_fortune(**kwargs):
     string = request.args.get('text','Tell me a fortune.')
     try:
-        get_fortune(string,random_fortune=True)
+        get_fortune(string,random_fortune=True,**kwargs)
     except NameError as e:
         logging.error(f"Error Generating new fortune. {e} {type(e).__name__}")
         #raise e
@@ -161,9 +168,9 @@ def generate_new_fortune():
         return {'success': False, 'exception': str(e), 'exception_type': type(e).__name__}
     return {'success': True}
 
-def get_last_cached_fortune():
-    fortune = mongo.db.fortunes.find_one({"trump": True},sort=[('time_created',-1)])
-    return fortune
+@app.route('/generate/trump')
+def generate_new_trump_fortune(**kwargs):
+    pass
 
 
 @app.route('/speak/')
@@ -204,6 +211,12 @@ def calibration_see_all():
 @app.route('/')
 def index():
     fortune = get_last_cached_fortune()
+    entropy = random.random()
+    return render_template('/pages/fortune.html',entropy=entropy,**fortune)
+
+@app.route('/')
+def index():
+    fortune = get_last_cached_fortune(trump=True)
     entropy = random.random()
     return render_template('/pages/fortune.html',entropy=entropy,**fortune)
 
