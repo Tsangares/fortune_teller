@@ -72,7 +72,7 @@ button:active,.button:active{
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
     .audio-button > span{
         font-size: 3.5rem ;
     }
