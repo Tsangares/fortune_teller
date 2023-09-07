@@ -81,7 +81,7 @@ def text_to_wav(text,voice="default"):
 DEFAULT_PRE_PROMPT = "You are a fortune teller. Please respond with an insightful unique fortune. Respond with only english under 50 words."
 TRUMP_PRE_PROMPT = "You are Donald trump and you make predictions like you are giving a campaign speech. Please announce a fortune in 2 sentences and under 50 words."
 
-def create_fortune(voice=None,query="Tell me a fortune.",pre_prompt=DEFAULT_PRE_PROMPT):
+def create_fortune(voice=None,query="Tell me a fortune.",pre_prompt=DEFAULT_PRE_PROMPT,tags=[]):
     if voice == "trump":
         pre_prompt = TRUMP_PRE_PROMPT
 
@@ -115,7 +115,8 @@ def create_fortune(voice=None,query="Tell me a fortune.",pre_prompt=DEFAULT_PRE_
         "views": 0,
         "response": response,
         "voice": voice,
-        "audio_string": audio_string
+        "audio_string": audio_string,
+        "tags": tags,
     }
 
     # Logging to mongodb
@@ -139,10 +140,14 @@ def actually_generate_new_fortune(**kwargs):
     return {'success': True}
 """
 
-def generate_fortunes(N=10,voice="default"):
+def generate_fortunes(N=10,voice="default", query="Tell me a fortune.",tags=[]):
     for i in range(N):
-        create_fortune(voice)
+        create_fortune(voice,query=query,tags=tags)
         print(f"Created Fortune {i}")
 
+def generate_trump_fortunes(N,query,tags):
+    return generate_fortunes(N, 'trump',query=query,tags=tags)
+
+NC_WEATHER = "Tell me a fortune about the weather in North Carolina. You can be specific about cities; this is just for a silly fun gimick so be funny and dramatic."
 if __name__ == "__main__":
-    generate_fortunes(10,'trump')
+    generate_trump_fortunes(3,query=NC_WEATHER,tags=["weather","north carolina"])

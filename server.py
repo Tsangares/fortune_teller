@@ -67,6 +67,13 @@ def fortune_teller_trump():
     entropy = random.random()
     return render_template('/pages/fortune.html',entropy=entropy,**fortune)
 
+@app.route('/weather/')
+def get_trump_weather():
+    fortune = get_fortune(voice="trump",tags={"$in": ["weather","north carolina"]})
+    entropy = random.random()
+    return render_template('/pages/fortune.html',entropy=entropy,**fortune)
+
+
 @app.route('/')
 def index():
     fortune = get_fortune(voice="default")
