@@ -15,13 +15,11 @@
             <h1 class="title berkshire">Words from the Oracle</h1>
         </div>
         <div class="audio-container center">
-            <div id="play" class="audio-button expanding-button center" onclick="play()">
-                <span class="material-icons">
-                    play_arrow
-                </span>
+            <div id="play" class="blue audio-button expanding-button center" onclick="play()">
+                <span class="material-icons">play_arrow</span>
             </div>
-            <div id="pause" class="audio-button expanding-button center hidden" onclick="pause()">
-                <span class="material-icons">pause_arrow</span>
+            <div id="pause" class="yellow audio-button expanding-button center hidden" onclick="pause()">
+                <span class="material-icons">pause</span>
             </div>
             <audio id="audio" hidden autoplay controls src="data:audio/wav;base64, {{audio_string}}"></audio>
         </div>

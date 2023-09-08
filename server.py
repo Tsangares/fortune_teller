@@ -56,10 +56,22 @@ def calibration_see_all():
     prompts = [p for p in cursor]
     return render_template("/pages/calibrate_all.html",prompts=prompts)
 
-def get_fortune(**kwargs):
-    fortune = mongo.db.fortunes.find_one({}|kwargs,sort=[('last_viewed',1)])
+def get_last_modified_random_fortune(**kwargs):
+    query = [
+        {'$match': kwargs}, 
+        {'$sort': {'last_viewed': 1}},
+        {'$limit': 10},
+        {'$sample': {'size': 1}},
+    ]
+    fortune = mongo.db.fortunes.aggregate(query).next()
     mongo.db.fortunes.update_one({'_id': fortune['_id']},{'$inc': {'views': 1}, '$set': {'last_viewed': datetime.now()}})
     return fortune
+
+def get_fortune(**kwargs):
+    #fortune = mongo.db.fortunes.find_one({}|kwargs,sort=[('last_viewed',1)])
+    #mongo.db.fortunes.update_one({'_id': fortune['_id']},{'$inc': {'views': 1}, '$set': {'last_viewed': datetime.now()}})
+    #return fortune
+    return get_last_modified_random_fortune(**kwargs)
 
 @app.route('/trump/')
 def fortune_teller_trump():

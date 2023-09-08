@@ -4,3 +4,10 @@
 .good{
     background-color: rgba(241, 196, 15,.5);
 }
+
+.blue{
+    background-color: rgb(6, 118, 223) !important;
+}
+.yellow{
+    background-color: rgb(249,137,32) !important;
+}

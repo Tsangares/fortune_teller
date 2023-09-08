@@ -148,6 +148,20 @@ def generate_fortunes(N=10,voice="default", query="Tell me a fortune.",tags=[]):
 def generate_trump_fortunes(N,query,tags):
     return generate_fortunes(N, 'trump',query=query,tags=tags)
 
-NC_WEATHER = "Tell me a fortune about the weather in North Carolina. You can be specific about cities; this is just for a silly fun gimick so be funny and dramatic."
+WEATHER_PROMPT=[
+    "Spin me a tale of the future weather in North Carolina. Feel free to focus on the mysterious mountains or the enchanting coastlines. Remember, drama is the key!",
+    "Whisper to me the secrets of the upcoming climate in the United States. Dive deep into the heartlands or soar high with the eagles in the Rockies. And don't forget to sprinkle in some humor!",
+    "Imagine you're a time-traveling meteorologist in North Carolina. What quirky weather predictions do you see for the Tar Heel State? Make it as whimsical as you can!",
+    "If Mother Nature had a diary entry about the weather in the United States for next week, what would it say? Be as poetic and theatrical as possible!",
+    "Conjure up a weather forecast for North Carolina as if it were a scene from a blockbuster movie. Whether it's romance under the rain or action-packed thunderstorms, let your creativity run wild!",
+    "Tell me a fortune about the weather in the United States, but imagine it's being narrated by a dramatic Shakespearean actor. To be sunny, or not to be sunny, that is the question!",
+    "Predict the weather for the United States as if you're a fortune teller gazing into a crystal ball. Remember, the foggier the ball, the funnier the forecast!",
+    "Describe the upcoming weather in North Carolina as if it were a thrilling detective story. Will the sun shine through the mysteries or will the clouds cloak the truth?",
+    "Give me a weather forecast for the United States, but imagine it's being told by a stand-up comedian at a comedy club. Bring on the laughs and the unexpected twists!",
+    "Tell me a fortune about the weather in North Carolina. You can be specific about cities",
+]
+POST_WEATHER = "; This is just for a silly fun gimick so be funny and dramatic."
 if __name__ == "__main__":
-    generate_trump_fortunes(3,query=NC_WEATHER,tags=["weather","north carolina"])
+    for i in range(90):
+        prompt = random.choice(WEATHER_PROMPT) + POST_WEATHER
+        generate_trump_fortunes(2,query=prompt,tags=["weather","north carolina"])
