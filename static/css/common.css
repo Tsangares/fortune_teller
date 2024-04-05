@@ -107,3 +107,11 @@ button:active,.button:active{
     font-family: 'berkshire';
 }
 
+.tag {
+    font-size: .7rem;
+    background-color: rgba(155,38,182,.5);
+    color: #641975;
+    border-radius: .251rem;
+    padding: .25rem;
+    margin: .25rem;
+}

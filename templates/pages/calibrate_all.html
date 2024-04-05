@@ -18,13 +18,33 @@
             <a href="/calibrate/"><button>Back to Calibration</button></a>
         </div>
         {% for prompt in prompts %}
-        <div class="box">
+	<a class="box" href="/calibrate/?pre_prompt={{prompt['pre_prompt']}}&prompt={{prompt['prompt']}}&name={{prompt.get('name','')}}&tags={{prompt.get('tags','')}}">
+          <div>
+	    {% if 'name' in prompt %}
+	    <h3 class="berkshire">Oracle Name: {{prompt['name']}}</h3>
+	    {% else %}
+	    <h3 class="berkshire">Oracle Name: None</h3>
+	    {% endif %}
             <p>{{prompt['pre_prompt']}}</p>
             <p>{{prompt['prompt']}}</p>
-        </div>
+	    <div class="tags">
+	      {% if 'tags' in prompt %}
+	      {% for tag in prompt['tags'] %}
+              <span class="tag is-light is-info">{{tag}}</span>
+	      {% endfor %}
+	      {% endif %}
+	    </div>
+          </div>
+	</a>
         {% endfor %}
     </div>
 </body>
 <foot>
+  <style>
+    a {
+	text-decoration: none;
+	color: #641975;
+    }
+  </style>
 </foot>
 </html>

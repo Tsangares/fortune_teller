@@ -7,6 +7,7 @@
     {% include "components/header.html" %}
     <link href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/page_calibration.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 </head>
 
 <body>
@@ -16,8 +17,16 @@
         </div>
         <form action="/calibrate/" method="post">
             <field>
+                <label id="label-prompt" for="name">Oracle Name</label>
+                <input type="text" name="name" id="name" placeholder="Name of this fortune teller" value="{{name}}"/>
+            </field>
+            <field>
+                <label id="label-prompt" for="tags">Tags</label>
+                <input type="text" name="tags" id="tags" placeholder="hafo-safo, funny" value="{{tags}}"/>
+            </field>
+            <field>
                 <label id="label-pre-prompt" for="pre-prompt">Pre-Prompt</label>
-                <textarea rows=4" name="pre_prompt" id="pre-prompt" placeholder="{{default_pre_prompt}}">{{pre_prompt}}</textarea>
+                <textarea rows="5" name="pre_prompt" id="pre-prompt" placeholder="{{default_pre_prompt}}">{{pre_prompt}}</textarea>
             </field>
             <field>
                 <label id="label-prompt" for="prompt">Example Prompt</label>
@@ -31,15 +40,37 @@
         {% if fortune %}
         <div>
             <p>{{fortune}}</p>
-            
         </div>
-        <div>
-            <button hx-trigger="click" hx-post="/calibrate/save" hx-include="#pre-prompt, #prompt" hx-target="this" hx-swap="outerHTML"/>Save Prompts</button>
+        <div class="button-container">
+	  <div class="audio-container center">
+            <div id="play" class="blue audio-button expanding-button center" onclick="play()">
+              <span class="material-icons">play_arrow</span>
+            </div>
+            <div id="pause" class="yellow audio-button expanding-button center hidden" onclick="pause()">
+              <span class="material-icons">pause</span>
+            </div>
+            <audio id="audio" hidden autoplay controls src="data:audio/wav;base64, {{audio_string}}"></audio>
+          </div>
+            <button hx-trigger="click" hx-post="/calibrate/save" hx-include="#pre-prompt, #prompt, #name, #tags" hx-target="this" hx-swap="outerHTML"/>Save Prompt</button>
             <p id="save-response"></p>
         </div>
         {% endif %}
     </div>
 </body>
 <foot>
+  <script>
+    function play() {
+        $('#audio').get(0).play();
+        // Hide by setting display none
+        $('#play').css('display', 'none');
+        $('#pause').css('display', 'flex');
+    }
+    function pause(){
+        $('#audio').get(0).pause();
+        $('#play').css('display', 'flex');
+        $('#pause').css('display', 'none');
+    }
+  </script>
+
 </foot>
 </html>
